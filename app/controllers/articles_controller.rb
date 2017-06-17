@@ -5,14 +5,13 @@ class ArticlesController < ApplicationController
 
   def index
     @article = Article.all
-
   end
+
 
   def new
-
     @article = Article.new
-
   end
+
 
   def edit
     
@@ -44,6 +43,7 @@ class ArticlesController < ApplicationController
   def show
     
   end
+
 
   def destroy
       
