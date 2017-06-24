@@ -6,4 +6,9 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new] # Esto nos dará acceso a todas la rutas para users excepto a new 
+                                   # que ya la hemos definido en la línea superior en el 'signup'
+
+
 end
