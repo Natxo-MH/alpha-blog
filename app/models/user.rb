@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_many :articles
+  has_many :articles, dependent: :destroy
   before_save { self.email = email.downcase }  #convierte el texto (en este caso del email) en minúsculas
 
   validates :username, presence: true, 
