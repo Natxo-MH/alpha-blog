@@ -1,10 +1,7 @@
 $navbar-default-bg: #000000;
 
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-
 
 #logo {
   float: left;
@@ -49,8 +46,6 @@ $navbar-default-bg: #000000;
   margin-top: 15px;
 }
 
-
-
 .article-actions {
   border-top: 1px solid #eaeaea;
   padding-top: 5px;
@@ -77,8 +72,16 @@ $navbar-default-bg: #000000;
   
 }
 
+.badge {
+  background-color: #CEF6F5;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
 
-
+.input_chexbox input {
+  width: auto !important;
+}
 
 footer {
   margin-top: 45px;
@@ -104,8 +107,4 @@ footer ul li {
   float: left;
   margin-left: 15ps;
 }
-
-
-
-
 
