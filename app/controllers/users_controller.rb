@@ -27,13 +27,12 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "Your account was updated successfully"
+      flash[:success] = "Tu cuenta se ha actualizado de forma satisfactoria"
       redirect_to articles_path
     else
       render 'edit'
     end
   end
-
 
   def show
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
@@ -42,10 +41,9 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:danger] = "User and all articles created by user have been deleted"
+    flash[:danger] = "El ususario y todos los artículos creados por él han sido eliminados"
     redirect_to users_path
   end
-
 
   private
 
@@ -59,14 +57,14 @@ class UsersController < ApplicationController
 
   def require_same_user
     if current_user != @user and !current_user.admin?
-      flash[:danger] = "You can only edit your own account"
+      flash[:danger] = "Sólo puede editar tu propia cuenta"
       redirect_to root_path
     end
   end
   
   def require_admin
     if logged_in? and !current_user.admin?
-      flash[:danger] = "Only admin users can perform that action"
+      flash[:danger] = "Sólo el administrador puede realizar esta acción"
       redirect_to root_path
     end
   end

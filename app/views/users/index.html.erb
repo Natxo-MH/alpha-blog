@@ -1,4 +1,4 @@
-<h1 align="center">All Alpha Bloggers</h1>
+<h1 align="center">Todos los Bloggers de Natxo's Blog</h1>
 
 <div align="center">
 
@@ -17,12 +17,12 @@
           </li>
          
           <li><small>
-            <%= pluralize(user.articles.count, "article") if user.articles %>
+            <%= pluralize(user.articles.count, "artículo") if user.articles %>
           </small></li>
 
               <% if logged_in? and current_user.admin? %>
-                <li><%= link_to "Delete this user", user_path(user), method: :delete,
-                        data: { confirm: "Are you sure you want to delete the user and all their articles?" } %></li>
+                <li><%= link_to "Borrar este usuario", user_path(user), method: :delete,
+                        data: { confirm: "¿Estás seguro/a de que quieres borrar a este usuario y todos sus artículos?" } %></li>
               <% end %>
 
         </div>

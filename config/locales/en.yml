@@ -31,3 +31,53 @@
 
 en:
   hello: "Hello world"
+
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Siguiente &#8594;"
+    page_gap: "&hellip;"
+
+  activerecord:
+    errors:
+      models:
+        article:     
+          attributes:
+            title: 
+              blank: El título no puede estar en blanco
+              too_short: El título debe contener al menos 3 caracteres
+              too_long: El título no puede tener más de 50 caracteres
+            description:
+              blank: La descripción no puede estar en blanco
+              too_short: La descripción debe contener al menos 10 caracteres
+              too_long: La descripción no puede tener más de 300 caracteres
+
+        category:
+          attributes:
+            name:
+              blank: El nombre no puede estar en blanco
+              too_short: El nombre de la categoria no puede tener menos de 3 caracteres
+              too_long: El nombre de la categoria no puede tener más de 25 caracteres
+
+        user:
+          attributes:
+            username:
+              blank: El nombre de usuario no puede estar en blanco
+              taken: El nombre de usuario ya existe. Debes elegir otro.
+              too_short: El nombre de usuario no puede tener menos de 3 caracteres
+              too_long: El nombre de usuario no puede tener más de 25 caracteres
+
+            email:
+              blank: El campo email no puede estar en blanco
+              invalid: El formato del email no es un formato válido
+              taken: Este email ya está siendo usado por otro usuario. Debes facilitar otro email.
+
+            password:
+              blank: El password no puede estar en blanco
+
+
+
+
+
+
+
+

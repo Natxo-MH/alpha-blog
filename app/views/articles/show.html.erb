@@ -1,4 +1,4 @@
-<h2 align="center"> Title: <%= @article.title %></h2>
+<h2 align="center"> Título: <%= @article.title %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
   
   <% if @article.user %> 
@@ -7,7 +7,7 @@
       <div class="row center">
         <div class="col-md-4 col-md-offset-4">
 
-          <li>Created by:</li>
+          <li>Creado por:</li>
           
           <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
           
@@ -16,7 +16,7 @@
           </li>
             
           <li><small>
-              <%= pluralize(@article.user.articles.count, "article") if @article.user.articles %>
+              <%= pluralize(@article.user.articles.count, "artículo") if @article.user.articles %>
           </small></li>
           
         </div>
@@ -26,24 +26,24 @@
   <% end %>
 
 
-  <h4 class="center description"><strong>Decription:</strong></h4>
+  <h4 class="center description"><strong>Descripción:</strong></h4>
   <hr>
   
   <%= simple_format(@article.description) %>
 
   <% if @article.categories.any? %>
-    <p>Categories: <%= render @article.categories %></p>
+    <p>Categorias: <%= render @article.categories %></p>
   <% end %>
 
   <div class="article-actions">
     <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
-      <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary" %> |
-      <%= link_to "Delete this article", article_path(@article), method: :delete, 
-                                            data: { confirm: "Are you sure you want to delete the article?"}, 
+      <%= link_to "Editar el artículo", edit_article_path(@article), class: "btn btn-xs btn-primary" %> |
+      <%= link_to "Borrar el artículo", article_path(@article), method: :delete, 
+                                            data: { confirm: "¿Estás seguro/a de que quieres borrar este artículo?"}, 
                                             class: "btn btn-xs btn-danger" %> |
       
      <% end %>                                       
-      <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
+      <%= link_to "Ver todos los artículos", articles_path, class: "btn btn-xs btn-success" %>
 
 
   </div>

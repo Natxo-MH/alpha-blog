@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.paginate(page: params[:page], per_page: 5).order('updated_at DESC')
   end
 
   def new
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article.user = current_user
 
     if @article.save
-      flash[:success] = "Article was succesfully created"
+      flash[:success] = "El artículo se ha creado satisfactoriamente"
       redirect_to article_path(@article)
     else
       render 'new'
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:success] = "Article vas succesfully updated"
+      flash[:success] = "El artículo se ha actualizado con éxito"
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:danger] = "Article was successfully deleted"
+    flash[:danger] = "El artículo ha sido eliminado"
     redirect_to articles_path
   end 
 
@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 
     def require_same_user
       if current_user != @article.user and !current_user.admin?
-        flash[:danger] = "You can only edit or delete your own articles"
+        flash[:danger] = "Sólo puedes editar o borrar tus propios artículos"
         redirect_to root_path
       end
     end
